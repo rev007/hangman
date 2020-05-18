@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script type='text/javascript' language='javascript' src='assets/javascript/game.js' defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Chicle|Ranchers|Spicy+Rice');
+  </style>
+</head>
+
+<body>
+  <!--container holds all the elements-->
+  <div class="container mybox">
+    <!--Button "click to start"-->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- <button type="button" class="btn btn-warning" id="startBtn" onclick='gameSet()'>Play</button>-->
+      </div>
+    </div>
+    <!--Title and instructions-->
+    <div class="row myrow">
+      <div class="col-md-12">
+        <br>
+        <h1>Make Words, Not War</h1>
+        <h2>Peace Love & Hangman</h2>
+        <div class="start-game">
+          <p>Press keys to guess the letters in the word.</p>
+          <button type="button" class="btn start-btn btn-light">Start</button>
+        </div>
+      </div>
+    </div>
+    <div class="winner-message">
+      <h2>FAR OUT!</h2>
+      <h5>You guessed it!</h5>
+      <button type="button" class="btn hide-btn btn-light">Play Again</button>
+    </div>
+    <div class="loser-message">
+      <h2>AW, MAN!</h2>
+      <h5>Get it together!</h5>
+      <button type="button" class="btn hide-btn btn-light">Play Again</button>
+    </div>
+    <br>
+    <!--The word being guessed-->
+    <div class="row myrow">
+      <div class="col-md-12 my-col">
+        <div id="letters"></div>
+      </div>
+    </div>
+    <br><br><br>
+    <hr>
+    <!--Three columns with the stats-->
+    <div class="row myrow">
+      <div class="col-md-2 my-col">
+        <h3>Wins</h3>
+        <div id="wins"></div>
+      </div>
+      <div class="col-md-2 my-col">
+        <h3>Losses</h3>
+        <div id="losses"></div>
+      </div>
+      <div class="col-md my-col">
+        <h3>Used Letters</h3>
+        <div id="wrongLetters"></div>
+      </div>
+      <div class="col-md-2 my-col">
+        <h3>Guesses Left</h3>
+        <div id="guessCount"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <footer id="linkSmall">
+    <a href='https://www.freepik.com/free-vector/colorful-flower-icons_762773.htm'>Flower vectors created by Freepik</a>
+  </footer>
+
+
+</body>
+
+</html>
