@@ -3,9 +3,10 @@ $(document).ready(function () {
   // ARRAYS
   //----------------------
   // array of words 
-  var wordArr = ["groovy", "aquarius", "stoned", "protest", "peaceful", "incense", "counterculture", "hallucination", "psychedelic", "tripping", "woodstock",
-    "liberation", "karma", "rocknroll", "sixties", "flower"
-  ];
+  // const wordArr = ["groovy", "aquarius", "stoned", "protest", "peaceful", "incense", "counterculture", "hallucination", "psychedelic", "tripping", "woodstock",
+  //   "liberation", "karma", "rocknroll", "sixties", "flower"
+  // ];
+  const wordArr = ["pariseault", "too many kevins", "burtons", "command skills"];
   // Array to hold the letters of the randomWord
   var randomWordLetters = [];
   // Array to hold the asterisks pushed in place of each letter
