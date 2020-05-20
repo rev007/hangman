@@ -6,7 +6,8 @@ $(document).ready(function () {
   // const wordArr = ["groovy", "aquarius", "stoned", "protest", "peaceful", "incense", "counterculture", "hallucination", "psychedelic", "tripping", "woodstock",
   //   "liberation", "karma", "rocknroll", "sixties", "flower"
   // ];
-  const wordArr = ["pariseault", "too many kevins", "burtons", "command skills"];
+  const wordArr = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "electrocardiogram", "airplay", "retina",
+    "encrypted"];
   // Array to hold the letters of the randomWord
   var randomWordLetters = [];
   // Array to hold the asterisks pushed in place of each letter
