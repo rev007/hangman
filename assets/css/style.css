@@ -26,9 +26,21 @@ h3 {
   font-size: 1.25rem;
 }
 
+.catch-phrase {
+  margin-top: 10px;
+}
+
 /* makes up part of Apple Hangman */
 .signage {
+  margin-top: 10px;
   margin-left: 95px;
+  /*margin-bottom: 28px;*/
+  /*margin-bottom: 88px;*/
+  /*margin-bottom: 44px;*/
+}
+
+.start-game {
+  margin-top: 88px;
 }
 
 .winner-message {
@@ -60,6 +72,8 @@ h3 {
 
 /* word being guessed */
 #letters {
+  margin-top: 30px;
+  /*margin-bottom: 40px;*/
   font-size: 4rem;
   color: #3CC9EB
 }

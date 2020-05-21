@@ -98,6 +98,7 @@ $(document).ready(function () {
 
   $(".start-btn").on("click", function () {
     $(".start-game").hide();
+    $("#letters").css('margin-bottom', 62 + "px");
     gameSet();
   });
 
