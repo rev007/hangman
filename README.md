@@ -16,3 +16,11 @@ The nature of the game is word guessing (aka hangman). The computer will choose 
 * Updates to the wins and losses count
 * After a win or loss the game should restart and a new letter be chosen
 
+# Hosted-Location
+The game can be found on...
+https://rev007.github.io/hangman/
+
+### Credits
+
+Starter code from Jennifer Gingras
+https://www.jennifergingras.design

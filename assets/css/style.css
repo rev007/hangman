@@ -1,7 +1,8 @@
 body {
-  background-image: url('../images/background-03.png');
+  background-image: url('../images/apple-dunk-man-1.png');
   margin: auto;
   padding: 0;
+  background-size: cover;
 }
 
 .mybox {
@@ -23,6 +24,11 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
+}
+
+/* makes up part of Apple Hangman */
+.signage {
+  margin-left: 95px;
 }
 
 .winner-message {
