@@ -2,10 +2,7 @@ $(document).ready(function () {
 
   // ARRAYS
   //----------------------
-  // array of words 
-  // const wordArr = ["groovy", "aquarius", "stoned", "protest", "peaceful", "incense", "counterculture", "hallucination", "psychedelic", "tripping", "woodstock",
-  //   "liberation", "karma", "rocknroll", "sixties", "flower"
-  // ];
+  // array of words
   const wordArr = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "electrocardiogram", "airplay", "retina",
     "encrypted", "continuity"];
   // Array to hold the letters of the randomWord
@@ -17,7 +14,7 @@ $(document).ready(function () {
 
   // VARIABLES
   //---------------------------
-  var numGuess = 10;
+  var numGuess = 7; // H-A-N-G-M-A-N
   var wins = 0;
   var losses = 0;
   var randomWord = "";
@@ -41,7 +38,7 @@ $(document).ready(function () {
     $(".winner-message").hide();
     $(".loser-message").hide();
     // set counters at startpoint
-    numGuess = 10;
+    numGuess = 7; // H-A-N-G-M-A-N
     // computer selects random word from array
     randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
     // test randomWord
