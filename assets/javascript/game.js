@@ -25,7 +25,7 @@ $(document).ready(function () {
   var guessCount = document.getElementById("guessCount");
   var winCounter = document.getElementById("wins");
   var lossCounter = document.getElementById("losses");
-  var message = document.getElementById("lettermessage");
+  // var message = document.getElementById("lettermessage");
   var finalword = document.getElementById(".finalWord");
   $(".winner-message").hide();
   $(".loser-message").hide();
@@ -59,7 +59,7 @@ $(document).ready(function () {
     answerLetters.innerHTML = answerArr.join(" ");
     usedLetters.innerHTML = wrongLetter.join(" ");
     guessCount.innerHTML = numGuess;
-    message.innerHTML = " ";
+    // message.innerHTML = " ";
   }
 
   // CHECK GUESSED LETTERS
@@ -141,7 +141,7 @@ $(document).ready(function () {
     if (letterKey.match(/^[A-Za-z]+$/) && letterKey.length === 1) // check if key pressed is a letter
       checkLetter(letterKey); // run checkLetter function to check if letter is in word and push it to proper array
     else { // if it's not a letter display alert
-      message.innerHTML = "Pick a letter!";
+      // message.innerHTML = "Pick a letter!";
       //  alert('Pick a letter');
 
     }
