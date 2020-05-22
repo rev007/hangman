@@ -82,6 +82,7 @@ h3 {
 #letters {
   margin-top: 30px;
   /*margin-bottom: 40px;*/
+  margin-bottom: 62px;
   font-size: 4rem;
   /*color: #3CC9EB;*/
   color: #5c7ee5;
@@ -124,19 +125,59 @@ footer {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+
+  .mybox {
+    /*from 40px*/
+    margin: 25px auto;
+  }
   .catch-phrase {
     font-size: 2.3rem;
+    /*margin-top: 0;*/
+    /*margin-bottom: 0;*/
+    margin-bottom: 5px;
+  }
+  .signage {
+    font-size: 1.2rem;
+    margin-left: 78px;
+  }
+  .start-game {
+    margin-top: 60px;
+  }
+  /*quick remedy - will fix later*/
+  .zork {
     margin-top: 0;
+  }
+  #letters {
+    margin-top: 15px; /*from 30px in original code*/
+    font-size: 3.5rem;
   }
 }
 
 /*I used this query to taylor for my iPad Pro even though it says large laptops and desktops, etc.*/
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  .mybox {
+    margin: 40px auto;
+  }
   .catch-phrase {
     font-size: 2.8rem;
     margin-top: 10px;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
+  }
+  .signage {
+    font-size: 1.5rem;
+    margin-left: 95px;
+  }
+  .start-game {
+    margin-top: 88px;
+  }
+  /*return to normal from earlier media query awful solution*/
+  .zork {
+    margin-top: 1rem;
+  }
+  #letters {
+    margin-top: 30px; /*back to original code*/
+    font-size: 4rem; /*back to original code*/
   }
 }
 

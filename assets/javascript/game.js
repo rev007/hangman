@@ -95,6 +95,8 @@ $(document).ready(function () {
 
   $(".start-btn").on("click", function () {
     $(".start-game").hide();
+    // TODO
+    // why does this need an inline margin at the bottom? Nancy Drew time
     $("#letters").css('margin-bottom', 62 + "px");
     gameSet();
   });
