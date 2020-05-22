@@ -45,9 +45,13 @@ h3 {
 }
 
 .winner-message {
-  background-color: #b2dfdb;
-  opacity: 0.8;
+  /*background-color: #b2dfdb;*/
+  /*opacity: 0.8;*/
+  background: rgba(178, 223, 219, 0.8); /* wont affect alpha of child elements */
   padding: 2rem;
+  position: absolute;
+  z-index: 2;
+  width: 50%;
 }
 
 .winner-message h2 {
@@ -56,16 +60,19 @@ h3 {
 }
 
 .loser-message {
-  background-color: #b2dfdb;
-  opacity: 0.8;
+  /*background-color: #b2dfdb;*/
+  /*opacity: 0.8;*/
+  background: rgba(178, 223, 219, 0.8);
   padding: 2rem;
+  position: absolute;
+  z-index: 2;
+  width: 50%;
 }
 
 .loser-message h2 {
   color: #CC2473;
   font-family: 'Spicy Rice', cursive;
 }
-
 
 .hide-btn {
   font-size: .75rem;
