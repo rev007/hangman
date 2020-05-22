@@ -112,10 +112,10 @@ footer {
 /*}*/
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {...}
+/*@media only screen and (max-width: 600px) {...}*/
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {...}
+/*@media only screen and (min-width: 600px) {...}*/
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -124,7 +124,10 @@ footer {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
+  .catch-phrase {
+    font-size: 2.3rem;
+    margin-top: 0;
+  }
 }
 
 /*I used this query to taylor for my iPad Pro even though it says large laptops and desktops, etc.*/
@@ -132,6 +135,7 @@ footer {
 @media only screen and (min-width: 1200px) {
   .catch-phrase {
     font-size: 2.8rem;
+    margin-top: 10px;
     margin-bottom: 5px;
   }
 }
