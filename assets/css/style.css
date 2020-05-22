@@ -1,8 +1,9 @@
 body {
-  background-image: url('../images/apple-dunk-man-1.png');
+  background-image: url('../images/apple-hangman-1.png');
   margin: auto;
   padding: 0;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .mybox {
