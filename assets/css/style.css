@@ -33,7 +33,7 @@ h3 {
 
 /* makes up part of Apple Hangman */
 .signage {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   margin-left: 95px;
   /*margin-bottom: 28px;*/
   /*margin-bottom: 88px;*/
@@ -83,7 +83,8 @@ h3 {
   margin-top: 30px;
   /*margin-bottom: 40px;*/
   font-size: 4rem;
-  color: #3CC9EB
+  /*color: #3CC9EB;*/
+  color: #5c7ee5;
 }
 
 #losses,
@@ -104,8 +105,43 @@ footer {
   bottom: 0;
 }
 
-@media only screen and (max-width: 800px) {
-  body {
-    background-image: url('../images/background8x8.png');
+/*@media only screen and (max-width: 800px) {*/
+  /*body {*/
+    /*background-image: url('../images/background8x8.png');*/
+  /*}*/
+/*}*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {...}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/*I used this query to taylor for my iPad Pro even though it says large laptops and desktops, etc.*/
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .catch-phrase {
+    font-size: 2.8rem;
+    margin-bottom: 5px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1400px and up) */
+@media only screen and (min-width: 1400px) {
+  .catch-phrase {
+    font-size: 3rem;
+  }
+  .signage {
+    margin-top: 10px;
   }
 }
