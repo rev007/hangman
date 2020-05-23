@@ -62,10 +62,6 @@ h3 {
 .loser-message {
   /*background-color: #b2dfdb;*/
   /*opacity: 0.8;*/
-  /*background: rgba(178, 223, 219, 0.8);*/
-  /*background: rgba(255, 168, 16, 0.8);*/
-  /*background: rgba(178, 161, 161, 0.8);*/
-  /*background: rgba(161, 178, 178, 0.8);*/
   background: rgba(102, 182, 209, 0.8); /* wont affect alpha of child elements */
   padding: 2rem;
   position: absolute;

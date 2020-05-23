@@ -3,8 +3,21 @@ $(document).ready(function () {
   // ARRAYS
   //----------------------
   // array of words
-  const wordArr = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "electrocardiogram", "airplay", "retina",
-    "encrypted", "continuity", "download", "runner", "alloy", "steps", "ecosystem", "isaac", "upgrade", "hero", "authentication", "keynote"];
+  let wordArr = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "airplay", "retina", "voiceover",
+      "encrypted", "continuity", "download", "alloy", "steps", "ecosystem", "isaac", "upgrade", "hero", "authentication", "keynote",
+      "development", "culture", "earth", "inspire", "compete", "portability", "health", "podcasts", "empathy", "passions", "personlized",
+      "curated", "unboxing", "applecard", "affordability", "avenues", "feedback", "probe", "connection", "facetime", "recognition",
+      "experience", "services", "mirroring", "streaming", "icloud", "privacy", "credo", "accountability", "wellness", "replacement",
+      "sharing", "approach", "listen", "present", "extend", "chip", "infograph", "dialogue", "appletv", "challenges",
+      "activity", "webex", "empower", "motivation", "progress", "metrics"];
+  const wordArrCopy = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "airplay", "retina", "voiceover",
+      "encrypted", "continuity", "download", "alloy", "steps", "ecosystem", "isaac", "upgrade", "hero", "authentication", "keynote",
+      "development", "culture", "earth", "inspire", "compete", "portability", "health", "podcasts", "empathy", "passions", "personlized",
+      "curated", "unboxing", "applecard", "affordability", "avenues", "feedback", "probe", "connection", "facetime", "recognition",
+      "experience", "services", "mirroring", "streaming", "icloud", "privacy", "credo", "accountability", "wellness", "replacement",
+      "sharing", "approach", "listen", "present", "extend", "chip", "infograph", "dialogue", "appletv", "challenges",
+      "activity", "webex", "empower", "motivation", "progress", "metrics"];
+  let usedWords = []; // already used words for debugging
   // Array to hold the letters of the randomWord
   var randomWordLetters = [];
   // Array to hold the asterisks pushed in place of each letter
@@ -18,6 +31,8 @@ $(document).ready(function () {
   var wins = 0;
   var losses = 0;
   var randomWord = "";
+  let indexOfNewWord = -1;
+  let gameHasStarted = false;
 
   // Variables for displaying
   var answerLetters = document.getElementById("letters");
@@ -39,10 +54,30 @@ $(document).ready(function () {
     $(".loser-message").hide();
     // set counters at startpoint
     numGuess = 7; // H-A-N-G-M-A-N
+
+    console.log(wordArr); // for debugging
+    console.log("wordArr length is " + wordArr.length); // for debugging
+
+    // TEMP SOLUTION TO END THE GAME... check to see if out of words to guess
+    if (wordArr.length == 0) {
+        console.log("There are no words left to guess!");
+        answerLetters.innerHTML = "game over";
+        gameHasStarted = false;
+        throw new Error("Game over!");
+        // do something to end the game correctly like asking if they want to play again
+        // yes? then set wordArr to copyWordArr and start over
+    }
+
     // computer selects random word from array
-    randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+    // randomWord = wordArr[Math.floor(Math.random() * wordArr.length)]; // original code but don't know how good it is
+    indexOfNewWord = getRandomIntInclusive(0, wordArr.length - 1);
+    console.log("random number for index of word = " + indexOfNewWord); // for debugging
+    randomWord = wordArr[indexOfNewWord];
     // test randomWord
     console.log(randomWord);
+    // test if randomWord has already been guessed
+    console.log("Has this randomWord already been solved?... " + checkIfWinner(randomWord, usedWords)); // for debugging
+    console.log("used words = " + usedWords); // for debugging
     // turn letters in randomWord into string
     randomWordLetters = randomWord.split("");
     // set array for letters
@@ -60,6 +95,23 @@ $(document).ready(function () {
     usedLetters.innerHTML = wrongLetter.join(" ");
     guessCount.innerHTML = numGuess;
     // message.innerHTML = " ";
+  }
+
+  // GET RANDOM INTEGER BETWEEN TWO VALUES (INCLUSIVE OF BOTH VALUES)
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // CHECK IF WORD WAS ALREADY GUESSED CORRECTLY (FOR DEBUGGING)
+  function checkIfWinner(word, listOfWinners) {
+    let isWordUsed = "Nope.";
+    for(const winner of listOfWinners) {
+      if (word == winner)
+          isWordUsed = "Yes!!!";
+    }
+    return isWordUsed;
   }
 
   // CHECK GUESSED LETTERS
@@ -96,6 +148,7 @@ $(document).ready(function () {
   $(".start-btn").on("click", function () {
     $(".start-game").hide();
     $("#letters").show();
+    gameHasStarted = true;
     // TODO
     // why does this need an inline margin at the bottom? Nancy Drew time
     // $("#letters").css('margin-bottom', 62 + "px");
@@ -124,7 +177,9 @@ $(document).ready(function () {
       // Add (1) to wins
       wins++;
       winCounter.innerHTML = wins;
-      // disply win message (alert until I figure out another way)
+      usedWords.push(randomWord); // for debugging
+      wordArr.splice(indexOfNewWord, 1); // remove winning word from list of words to choose from
+      // display win message (alert until I figure out another way)
       winner();
       //message.innerHTML = "Far out! The word was " + randomWord + "!";
       // alert("Far out! The word was " + randomWord + "!");
@@ -140,18 +195,19 @@ $(document).ready(function () {
 
   // USER INPUT
   document.onkeyup = function (e) {
-    let letterKey = e.key; // put user input into variable
-    if (letterKey.match(/^[A-Za-z]+$/) && letterKey.length === 1) // check if key pressed is a letter
-      checkLetter(letterKey); // run checkLetter function to check if letter is in word and push it to proper array
-    else { // if it's not a letter display alert
-      // message.innerHTML = "Pick a letter!";
-      //  alert('Pick a letter');
+      let letterKey = e.key; // put user input into variable
+      if (letterKey.match(/^[A-Za-z]+$/) && letterKey.length === 1) // check if key pressed is a letter
+        checkLetter(letterKey); // run checkLetter function to check if letter is in word and push it to proper array
+      else { // if it's not a letter display alert
+        // message.innerHTML = "Pick a letter!";
+        //  alert('Pick a letter');
 
-    }
+      }
 
-    // call the afterGuess function
-    //setTimeout(afterGuess, 1000);
-    afterGuess();
+      // call the afterGuess function
+      //setTimeout(afterGuess, 1000);
+      if (gameHasStarted)
+        afterGuess();
   }
 
 });
