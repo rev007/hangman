@@ -9,14 +9,14 @@ $(document).ready(function () {
       "curated", "unboxing", "applecard", "affordability", "avenues", "feedback", "probe", "connection", "facetime", "recognition",
       "experience", "services", "mirroring", "streaming", "icloud", "privacy", "credo", "accountability", "wellness", "replacement",
       "sharing", "approach", "listen", "present", "extend", "chip", "infograph", "dialogue", "appletv", "challenges",
-      "activity", "webex", "empower", "motivation", "progress", "metrics"];
+      "activity", "webex", "empower", "motivation", "progress", "metrics", "selfies"];
   const wordArrCopy = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "airplay", "retina", "voiceover",
       "encrypted", "continuity", "download", "alloy", "steps", "ecosystem", "isaac", "upgrade", "hero", "authentication", "keynote",
       "development", "culture", "earth", "inspire", "compete", "portability", "health", "podcasts", "empathy", "passions", "personlized",
       "curated", "unboxing", "applecard", "affordability", "avenues", "feedback", "probe", "connection", "facetime", "recognition",
       "experience", "services", "mirroring", "streaming", "icloud", "privacy", "credo", "accountability", "wellness", "replacement",
       "sharing", "approach", "listen", "present", "extend", "chip", "infograph", "dialogue", "appletv", "challenges",
-      "activity", "webex", "empower", "motivation", "progress", "metrics"];
+      "activity", "webex", "empower", "motivation", "progress", "metrics", "selfies"];
   let usedWords = []; // already used words for debugging
   // Array to hold the letters of the randomWord
   var randomWordLetters = [];
