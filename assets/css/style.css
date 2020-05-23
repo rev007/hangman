@@ -47,7 +47,7 @@ h3 {
 .winner-message {
   /*background-color: #b2dfdb;*/
   /*opacity: 0.8;*/
-  background: rgba(178, 223, 219, 0.8); /* wont affect alpha of child elements */
+  background: rgba(102, 182, 209, 0.8); /* wont affect alpha of child elements */
   padding: 2rem;
   position: absolute;
   z-index: 2;
@@ -62,7 +62,11 @@ h3 {
 .loser-message {
   /*background-color: #b2dfdb;*/
   /*opacity: 0.8;*/
-  background: rgba(178, 223, 219, 0.8);
+  /*background: rgba(178, 223, 219, 0.8);*/
+  /*background: rgba(255, 168, 16, 0.8);*/
+  /*background: rgba(178, 161, 161, 0.8);*/
+  /*background: rgba(161, 178, 178, 0.8);*/
+  background: rgba(102, 182, 209, 0.8); /* wont affect alpha of child elements */
   padding: 2rem;
   position: absolute;
   z-index: 2;
@@ -122,35 +126,60 @@ footer {
 @media only screen and (min-width: 768px) {
 }
 
-
+/* I used this query to taylor the 9.7" iPad using responsive design mode in Safari */
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-
   .mybox {
     /*from 40px*/
     margin: 25px auto;
   }
   .catch-phrase {
-    font-size: 2.3rem;
-    /*margin-top: 0;*/
-    /*margin-bottom: 0;*/
-    margin-bottom: 5px;
+    font-size: 2.1rem;
+    margin-bottom: 0;
   }
   .signage {
-    font-size: 1.2rem;
-    margin-left: 78px;
+    font-size: 1.1rem;
+    margin-left: 70px;
   }
   .start-game {
-    margin-top: 60px;
+    margin-top: 45px;
+    margin-bottom: 60px;
   }
   /*quick remedy - will fix later*/
   .zork {
-    margin-top: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
   }
   #letters {
     margin-top: 15px; /*from 30px in original code*/
+    margin-bottom: 77px; /*62px; /* from $("#letters").css('margin-bottom', 62 + "px"); in game.js */
     font-size: 3.5rem;
+    display: none;
   }
+}
+
+/* I used this query to taylor the 10.5" iPad Pro using responsive design mode in Safari */
+@media only screen and (min-width: 1112px) {
+  .catch-phrase {
+    font-size: 2.3rem;
+    margin-top: 14px;
+    margin-bottom: 2px;
+  }
+  .signage {
+    font-size: 1.2rem;
+    margin-left: 75px;
+  }
+  .start-game {
+    margin-top: 55px;
+  }
+  #letters {
+    margin-top: 20px;
+    margin-bottom: 82px;
+  }
+  .zork {
+    margin-top: 15px;
+  }
+
 }
 
 /*I used this query to taylor for my iPad Pro even though it says large laptops and desktops, etc.*/
@@ -162,21 +191,23 @@ footer {
   .catch-phrase {
     font-size: 2.8rem;
     margin-top: 10px;
-    /*margin-bottom: 5px;*/
+    margin-bottom: 5px;
   }
   .signage {
     font-size: 1.5rem;
     margin-left: 95px;
   }
   .start-game {
-    margin-top: 88px;
+    margin-top: 80px;
   }
   /*return to normal from earlier media query awful solution*/
   .zork {
-    margin-top: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
   }
   #letters {
     margin-top: 30px; /*back to original code*/
+    margin-bottom: 85px;
     font-size: 4rem; /*back to original code*/
   }
 }
@@ -188,5 +219,11 @@ footer {
   }
   .signage {
     margin-top: 10px;
+  }
+  .start-game {
+    margin-bottom: 78px;
+  }
+  #letters {
+    margin-bottom: 103px;
   }
 }
