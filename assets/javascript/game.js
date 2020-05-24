@@ -3,20 +3,14 @@ $(document).ready(function () {
   // ARRAYS
   //----------------------
   // array of words
-  let wordArr = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "airplay", "retina", "voiceover",
+  const answers = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "airplay", "retina", "voiceover",
       "encrypted", "continuity", "download", "alloy", "steps", "ecosystem", "isaac", "upgrade", "hero", "authentication", "keynote",
       "development", "culture", "earth", "inspire", "compete", "portability", "health", "podcasts", "empathy", "passions", "personlized",
       "curated", "unboxing", "applecard", "affordability", "avenues", "feedback", "probe", "connection", "facetime", "recognition",
       "experience", "services", "mirroring", "streaming", "icloud", "privacy", "credo", "accountability", "wellness", "replacement",
       "sharing", "approach", "listen", "present", "extend", "chip", "infograph", "dialogue", "appletv", "challenges",
       "activity", "webex", "empower", "motivation", "progress", "metrics", "selfies"];
-  const wordArrCopy = ["pariseault", "runner", "burtons", "renewable", "daisy", "pro", "ram", "sim", "airplay", "retina", "voiceover",
-      "encrypted", "continuity", "download", "alloy", "steps", "ecosystem", "isaac", "upgrade", "hero", "authentication", "keynote",
-      "development", "culture", "earth", "inspire", "compete", "portability", "health", "podcasts", "empathy", "passions", "personlized",
-      "curated", "unboxing", "applecard", "affordability", "avenues", "feedback", "probe", "connection", "facetime", "recognition",
-      "experience", "services", "mirroring", "streaming", "icloud", "privacy", "credo", "accountability", "wellness", "replacement",
-      "sharing", "approach", "listen", "present", "extend", "chip", "infograph", "dialogue", "appletv", "challenges",
-      "activity", "webex", "empower", "motivation", "progress", "metrics", "selfies"];
+  let wordArr = answers;
   let usedWords = []; // already used words for debugging
   // Array to hold the letters of the randomWord
   var randomWordLetters = [];
@@ -42,6 +36,7 @@ $(document).ready(function () {
   var lossCounter = document.getElementById("losses");
   // var message = document.getElementById("lettermessage");
   var finalword = document.getElementById(".finalWord");
+  let daisyMessage = document.getElementById("daisy-says");
   $(".winner-message").hide();
   $(".loser-message").hide();
 
@@ -149,7 +144,7 @@ $(document).ready(function () {
     $(".start-game").hide();
     $("#letters").show();
     gameHasStarted = true;
-    // TODO
+    // TODO: clean this up
     // why does this need an inline margin at the bottom? Nancy Drew time
     // $("#letters").css('margin-bottom', 62 + "px");
     gameSet();
@@ -166,7 +161,11 @@ $(document).ready(function () {
       // Add (1) to losses
       losses++;
       lossCounter.innerHTML = losses;
-      // display losing message 
+      // Daisy's answer
+      daisyMessage.innerHTML = "Daisy says " + "&quot;" + randomWord + "!&quot;";
+      usedWords.push(randomWord); // for debugging
+      wordArr.splice(indexOfNewWord, 1); // remove word from list of words to choose from
+      // display losing message
       loser();
       // message.innerHTML = "Get it together! The word was " + randomWord + "!";
       // alert("Get it together! The word was " + randomWord + "!");
@@ -178,7 +177,7 @@ $(document).ready(function () {
       wins++;
       winCounter.innerHTML = wins;
       usedWords.push(randomWord); // for debugging
-      wordArr.splice(indexOfNewWord, 1); // remove winning word from list of words to choose from
+      wordArr.splice(indexOfNewWord, 1); // remove word from list of words to choose from
       // display win message (alert until I figure out another way)
       winner();
       //message.innerHTML = "Far out! The word was " + randomWord + "!";
@@ -201,13 +200,14 @@ $(document).ready(function () {
       else { // if it's not a letter display alert
         // message.innerHTML = "Pick a letter!";
         //  alert('Pick a letter');
-
       }
-
-      // call the afterGuess function
-      //setTimeout(afterGuess, 1000);
-      if (gameHasStarted)
-        afterGuess();
+      // don't allow keys to call afterGuess function if winner or loser message is already showing
+      if (!$(".winner-message").is(":visible") && !$(".loser-message").is(":visible")) {
+        // call the afterGuess function
+        //setTimeout(afterGuess, 1000); <- original code
+        if (gameHasStarted)
+            afterGuess();
+      }
   }
 
 });
