@@ -26,16 +26,19 @@ $(document).ready(function () {
   var losses = 0;
   var randomWord = "";
   let indexOfNewWord = -1;
+  const widthOfOneApple = 16; // width of the apple svg in pixels
+  let widthOfApples = 0; // width of the apples container
   let gameHasStarted = false;
 
   // Variables for displaying
   var answerLetters = document.getElementById("letters");
   var usedLetters = document.getElementById("wrongLetters");
-  var guessCount = document.getElementById("guessCount");
+  // var guessCount = document.getElementById("guessCount");
   var winCounter = document.getElementById("wins");
   var lossCounter = document.getElementById("losses");
   // var message = document.getElementById("lettermessage");
-  var finalword = document.getElementById(".finalWord");
+  var finalword = document.getElementById(".finalWord"); // <- was she looking for a class?
+  let guessesRemainingBox = document.getElementById("apple-guesses-left");
   let daisyMessage = document.getElementById("daisy-says");
   $(".winner-message").hide();
   $(".loser-message").hide();
@@ -49,7 +52,9 @@ $(document).ready(function () {
     $(".loser-message").hide();
     // set counters at startpoint
     numGuess = 7; // H-A-N-G-M-A-N
-
+    // show the apples
+    widthOfApples = widthOfOneApple * numGuess; // calculate width of apple container
+    guessesRemainingBox.style.width = widthOfApples + "px"; // adjust apple container
     console.log(wordArr); // for debugging
     console.log("wordArr length is " + wordArr.length); // for debugging
 
@@ -88,7 +93,7 @@ $(document).ready(function () {
     // display 
     answerLetters.innerHTML = answerArr.join(" ");
     usedLetters.innerHTML = wrongLetter.join(" ");
-    guessCount.innerHTML = numGuess;
+    // guessCount.innerHTML = numGuess;
     // message.innerHTML = " ";
   }
 
@@ -125,6 +130,8 @@ $(document).ready(function () {
     if (!letter) { // if guessed letter is not in word 
       wrongLetter.push(keyGuess); // add letter to wrongLetter array 
       numGuess--; // subtract 1 from guesses
+      widthOfApples = widthOfOneApple * numGuess; // calculate width of apple container
+      guessesRemainingBox.style.width = widthOfApples + "px"; // adjust apple container
     }
   }
 
@@ -155,7 +162,7 @@ $(document).ready(function () {
     // update HTML 
     answerLetters.innerHTML = answerArr.join(" ");
     usedLetters.innerHTML = wrongLetter.join(" ");
-    guessCount.innerHTML = numGuess;
+    // guessCount.innerHTML = numGuess;
     // check if game is lost
     if (numGuess === 0) {
       // Add (1) to losses
@@ -195,7 +202,7 @@ $(document).ready(function () {
   // USER INPUT
   document.onkeyup = function (e) {
       let letterKey = e.key; // put user input into variable
-      if (letterKey.match(/^[A-Za-z]+$/) && letterKey.length === 1) // check if key pressed is a letter
+      if (gameHasStarted && letterKey.match(/^[A-Za-z]+$/) && letterKey.length === 1) // check if key pressed is a letter
         checkLetter(letterKey); // run checkLetter function to check if letter is in word and push it to proper array
       else { // if it's not a letter display alert
         // message.innerHTML = "Pick a letter!";

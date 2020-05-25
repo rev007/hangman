@@ -90,11 +90,17 @@ h3 {
 
 #losses,
 #wrongLetters,
-#guessCount,
 #wins {
   font-size: 1.25rem;
   font-weight: bold;
   color: #CC2473;
+}
+
+#apple-guesses-left {
+  position: absolute;
+  width: 0; /* hide the apples at first */
+  height: 22px;
+  background-image: url('../images/apple-logo.svg');
 }
 
 #linkSmall {
