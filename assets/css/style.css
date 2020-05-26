@@ -16,7 +16,7 @@ body {
 h1 {
   font-size: 3rem;
   font-family: 'Spicy Rice', cursive;
-  color: #CC2473
+  color: #CC2473;
 }
 
 h2 {
@@ -100,7 +100,7 @@ h3 {
   position: absolute;
   width: 0; /* hide the apples at first */
   height: 22px;
-  background-image: url('../images/apple-logo.svg');
+  background-image: url('../images/apple-logo-16x22.svg');
 }
 
 #linkSmall {
